@@ -80,11 +80,11 @@ Personal-Portfolio-website/
     ```env
     PORT=5000
     MONGODB_URI=mongodb://127.0.0.1:27017/portfolio
-    ADMIN_EMAIL=shaikafrid709@gmail.com
+    ADMIN_EMAIL=your_email@gmail.com
     
     # Nodemailer Configurations
     EMAIL_SERVICE=gmail
-    EMAIL_USER=shaikafrid709@gmail.com
+    EMAIL_USER=your_email@gmail.com
     EMAIL_PASS=your_app_specific_password_here
     ```
 4.  Start the development server:
