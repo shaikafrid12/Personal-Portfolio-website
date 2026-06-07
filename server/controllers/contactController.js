@@ -64,11 +64,7 @@ const submitContact = async (req, res) => {
                 console.log('Email sent successfully:', info.response);
                 emailSent = true;
             } catch (err) {
-                console.error('Nodemailer Error:', err.message);
-                return res.status(500).json({ 
-                    success: false, 
-                    error: `Failed to send email message: ${err.message}` 
-                });
+                console.error('Nodemailer Error (email forwarding failed but contact was saved):', err.message);
             }
         } else {
             console.log(`[Local Simulation Mode] Contact form submitted by ${name} (${email}): "${subject}" - ${message}`);
@@ -78,7 +74,7 @@ const submitContact = async (req, res) => {
             success: true,
             message: emailSent 
                 ? 'Your message has been sent successfully! I will get back to you soon.' 
-                : 'Your message has been saved successfully (Local Simulation Mode)!',
+                : 'Your message has been saved successfully (Email notification offline)!',
             data: contact
         });
     } catch (error) {
