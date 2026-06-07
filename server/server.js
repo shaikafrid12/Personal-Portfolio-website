@@ -18,6 +18,9 @@ connectDB();
 
 const app = express();
 
+// Enable trust proxy to allow express-rate-limit to read X-Forwarded-For header correctly behind Render reverse proxy
+app.set('trust proxy', 1);
+
 
 // Security Middlewares
 // Customize helmet to allow image loads from multiple CDNs/sources easily
