@@ -42,6 +42,8 @@ const submitContact = async (req, res) => {
         });
 
         const transporter = getMailTransporter();
+        let emailSent = false;
+
         if (transporter) {
             const mailOptions = {
                 from: `"${name}" <${process.env.EMAIL_USER}>`,
@@ -57,25 +59,31 @@ const submitContact = async (req, res) => {
                     `Message:\n${message}\n`
             };
 
-           transporter.sendMail(mailOptions, (err, info) => {
-        if (err) {
-          console.error('Nodemailer Error:', err.message);
+            try {
+                const info = await transporter.sendMail(mailOptions);
+                console.log('Email sent successfully:', info.response);
+                emailSent = true;
+            } catch (err) {
+                console.error('Nodemailer Error:', err.message);
+                return res.status(500).json({ 
+                    success: false, 
+                    error: `Failed to send email message: ${err.message}` 
+                });
+            }
         } else {
-          console.log('Email sent successfully:', info.response);
+            console.log(`[Local Simulation Mode] Contact form submitted by ${name} (${email}): "${subject}" - ${message}`);
         }
-      });
-    } else {
-      console.log(`[Local Simulation Mode] Contact form submitted by ${name} (${email}): "${subject}" - ${message}`);
-    }
 
-    res.status(201).json({
-      success: true,
-      message: 'Your message has been sent successfully! I will get back to you soon.',
-      data: contact
-    });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
+        res.status(201).json({
+            success: true,
+            message: emailSent 
+                ? 'Your message has been sent successfully! I will get back to you soon.' 
+                : 'Your message has been saved successfully (Local Simulation Mode)!',
+            data: contact
+        });
+    } catch (error) {
+        res.status(500).json({ success: false, error: error.message });
+    }
 };
 
 module.exports = {
