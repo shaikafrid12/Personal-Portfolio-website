@@ -16,7 +16,10 @@ const getMailTransporter = () => {
             auth: {
                 user: process.env.EMAIL_USER,
                 pass: process.env.EMAIL_PASS
-            }
+            },
+            connectionTimeout: 8000, // fail fast if SMTP is blocked
+            greetingTimeout: 8000,
+            socketTimeout: 15000
         });
     }
     return null;
