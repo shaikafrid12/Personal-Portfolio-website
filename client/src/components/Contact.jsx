@@ -37,12 +37,27 @@ const Contact = () => {
                 setFormData({ name: '', email: '', subject: '', message: '' });
             } else {
                 setStatus('error');
-                setStatusMsg(res.data.error || 'Something went wrong. Please try again.');
+                const errorData = res.data.error;
+                setStatusMsg(typeof errorData === 'string' ? errorData : (errorData?.message || 'Something went wrong. Please try again.'));
             }
         } catch (error) {
             console.error('Contact submission error:', error.message);
             setStatus('error');
-            setStatusMsg(error.response?.data?.error || 'Failed to establish connection. Please check your network.');
+            
+            let msg = 'Failed to establish connection. Please check your network.';
+            if (error.response?.data) {
+                const data = error.response.data;
+                if (typeof data.error === 'string') {
+                    msg = data.error;
+                } else if (data.error && typeof data.error.message === 'string') {
+                    msg = data.error.message;
+                } else if (typeof data.message === 'string') {
+                    msg = data.message;
+                } else if (typeof data === 'string') {
+                    msg = data;
+                }
+            }
+            setStatusMsg(msg);
         }
     };
 
