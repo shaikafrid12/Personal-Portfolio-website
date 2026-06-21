@@ -34,7 +34,7 @@ const projects = [
     detailedDescription: `### Project Overview\nShaik Afrid's professional personal website designed to showcase computer science skills, timelines, and projects.\n\n### Architecture & Key Highlights\n- **Styling**: Tailwind CSS v4 and vanilla custom keyframes.\n- **Motion**: Framer Motion transitions and canvas-drawn particle repulsion coordinates.\n- **Core API**: Contact inquiries logged directly inside MongoDB via custom Nodemailer triggers and REST endpoints.`,
     image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80',
     technologies: ['React.js', 'Vite', 'Node.js', 'Express.js', 'MongoDB', 'Tailwind CSS v4', 'Framer Motion'],
-    githubLink: 'https://github.com/shaikafrid12/personal-portfolio',
+    githubLink: 'https://github.com/shaikafrid12/Personal-Portfolio-website',
     liveLink: '',
     category: 'Web Development',
     featured: true
