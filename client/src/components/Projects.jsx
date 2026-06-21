@@ -41,7 +41,7 @@ const Projects = ({ isHomeMode = true }) => {
                         detailedDescription: `### Project Overview\nAn immersive MERN stack e-commerce system that handles the entire retail journey from account creation to checkout.\n\n### Technical Implementation & Architecture\n- **Client**: React, Redux Toolkit for state flows, Tailwind CSS for sleek grids.\n- **Server**: Express.js REST API with structured MVC architecture.\n- **Database**: MongoDB for scalable product and user collections.\n- **Security**: JSON Web Tokens (JWT) for secure authentication and bcrypt for password hashing.`,
                         image: 'https://images.unsplash.com/photo-1472851294608-062f824d296e?auto=format&fit=crop&w=800&q=80',
                         technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'bcrypt', 'Tailwind CSS'],
-                        githubLink: 'https://github.com/shaikafrid12/ecommerce-mern',
+                        githubLink: 'https://github.com/shaikafrid12/E-Commerce',
                         liveLink: '',
                         category: 'Full-Stack Applications',
                         featured: true
@@ -53,7 +53,7 @@ const Projects = ({ isHomeMode = true }) => {
                         detailedDescription: `### Project Overview\nA responsive productivity dashboard designed to optimize work tracking and task progress.\n\n### Technical Achievements & Architecture\n- **Client**: React.js for building dynamic, reusable task cards and forms.\n- **Server**: Express.js serving APIs with secure private routes.\n- **Database**: MongoDB storing task metadata linked to user accounts.\n- **Security**: JWT tokens for stateless private dashboard endpoints.`,
                         image: 'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80',
                         technologies: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Tailwind CSS'],
-                        githubLink: 'https://github.com/shaikafrid12/task-manager',
+                        githubLink: 'https://github.com/shaikafrid12/taskmanger-',
                         liveLink: '',
                         category: 'Full-Stack Applications',
                         featured: true
